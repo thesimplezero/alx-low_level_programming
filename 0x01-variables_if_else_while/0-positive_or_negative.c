@@ -11,15 +11,20 @@
  * Return: Always 0 (Success)
 */
 
-#include <stdio.h>
-
 int main(void)
 {
-    int n;
+	int n;
 
-    scanf("%d", &n);
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
 
-    printf("%d is %s\n", n, (n > 0) ? "positive" : (n == 0) ? "zero" : "negative");
+	/*my code*/
+	if (n > 0)
+		printf("%i is positive\n", n);
+	else if (n == 0)
+		printf("%i is zero\n", n);
+	else
+		printf("%i is negative\n", n);
 
-    return (0);
+	return (0);
 }
