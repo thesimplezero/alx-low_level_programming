@@ -7,21 +7,22 @@
  *
  * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-	int digit1, digit2, digit3;
+	int num1, num2, num3;
 
-	for (digit1 = 0; digit1 <= 9; ++digit1)
+	for (num1 = 0; num1 <= 9; ++num1)
 	{
-		for (digit2 = digit1 + 1; digit2 <= 9; ++digit2)
+		for (num2 = num1 + 1; num2 <= 9; ++num2)
 		{
-			for (digit3 = digit2 + 1; digit3 <= 9; ++digit3)
+			for (num3 = num2 + 1; num3 <= 9; ++num3)
 			{
-				putchar(digit1 + '0');
-				putchar(digit2 + '0');
-				putchar(digit3 + '0');
+				putchar(num1 + '0');
+				putchar(num2 + '0');
+				putchar(num3 + '0');
 
-				if (digit1 != 7 || digit2 != 8 || digit3 != 9)
+				if (num1 != 7 || num2 != 8 || num3 != 9)
 				{
 					putchar(',');
 					putchar(' ');
