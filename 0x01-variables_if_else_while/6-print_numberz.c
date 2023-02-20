@@ -9,12 +9,12 @@
  */
 int main(void)
 {
-	int digit = 0;
+	int numberz = 0;
 
-	while (digit <= 9)
+	while (numberz < 10)
 	{
-		putchar(digit + '0');
-		++digit;
+		putchar(numberz % 10 + 48);
+		numberz++;
 	}
 	putchar('\n');
 

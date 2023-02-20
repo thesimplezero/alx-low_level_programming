@@ -10,21 +10,21 @@
 
 int main(void)
 {
-	char ch = 'a';
-	char CH = 'A';
+	char lowercase = 'a';
+	char uppercase = 'A';
 
 	/*prints a - z*/
-	while (ch <= 'z')
+	while (lowercase <= 'z')
 	{
-		putchar(ch);
-		++ch;
+		putchar(lowercase);
+		++lowercase;
 	}
 
 	/*print A - Z*/
-	while (CH <= 'Z')
+	while (uppercase <= 'Z')
 	{
-		putchar(CH);
-		++CH;
+		putchar(uppercase);
+		++uppercase;
 	}
 	putchar('\n');
 
