@@ -10,17 +10,17 @@
 
 int main(void)
 {
-	int numberz = 48; /*48; decimal rep of 0*/
+	int numzo = 48; /*48; decimal rep of 0*/
 
-	while (numberz <= 102) /*102; decimal rep of f*/
+	while (numzo <= 102) /*102; decimal rep of f*/
 	{
-		putchar(numberz);
+		putchar(numzo);
 
 		/* after 9 we jump till 96; `*/
-		if (numberz == 57)
-			numberz += 39;
+		if (numzo == 57)
+			numzo += 39;
 
-		++numberz;
+		++numzo;
 	}
 	putchar('\n');
 

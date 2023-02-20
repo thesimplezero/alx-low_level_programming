@@ -10,10 +10,10 @@
 
 int main(void)
 {
-	char teb = 'z';
+	char reverse = 'z';
 
-	while (teb >= 'a')
-		putchar(teb--);
+	while (reverse >= 'a')
+		putchar(reverse--);
 
 	putchar('\n');
 
