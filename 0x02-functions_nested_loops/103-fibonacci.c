@@ -25,5 +25,5 @@ int main(void)
     }
 
     printf("\n"); /* Print a new line character */
-    return 0; /* Indicate success */
+    return 0; 
 }

@@ -26,5 +26,5 @@ sum += i; /* Add the number to the sum */
 /* Print the sum followed by a new line */
 printf("%d\n", sum);
 
-return (0); /* Indicate success */
+return (0); 
 }
