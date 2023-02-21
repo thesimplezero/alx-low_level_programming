@@ -11,9 +11,10 @@
 int main(void)
 {
     int sum = 0;
+    int i;
 
     /* Iterate through all natural numbers below 1024 */
-    for (int i = 1; i < 1024; i++)
+    for (i = 1; i < 1024; i++)
     {
         /* Check if the number is a multiple of 3 or 5 */
         if (i % 3 == 0 || i % 5 == 0)
