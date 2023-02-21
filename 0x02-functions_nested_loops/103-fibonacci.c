@@ -1,34 +1,29 @@
-#include"main.h"
+#include <stdio.h>
 
 /**
- * main - Entry point
+ * main - Entry point of the program
  *
- * Description: Prints the sum of even-valued
- *		Fibonacci sequence not exceed
- *		4million
+ * Description: Finds and prints the first 98 Fibonacci numbers, starting
+ * with 1 and 2, separated by commas and spaces.
  *
- * Return: Always 0 (Success)
-*/
+ * Return: Always 0 (success)
+ */
 
 int main(void)
 {
-	unsigned long fib1 = 0, fib2 = 1, sum;
-	float total_sum;
+    int i, fib1 = 1, fib2 = 2, fib3; /* Initialize the first two Fibonacci numbers */
+    
+    printf("%d, %d", fib1, fib2); /* Print the first two Fibonacci numbers */
 
-	while (1)
-	{
-		sum = fib1 + fib2;
+    /* Calculate and print the next 96 Fibonacci numbers */
+    for (i = 3; i <= 98; i++)
+    {
+        fib3 = fib1 + fib2; /* Calculate the next Fibonacci number */
+        printf(", %d", fib3); /* Print the number separated by a comma and space */
+        fib1 = fib2; /* Update the previous two Fibonacci numbers */
+        fib2 = fib3;
+    }
 
-		if (sum > 4000000)
-			break;
-
-		if ((sum % 2) == 0)
-			total_sum += sum;
-
-		fib1 = fib2;
-		fib2 = sum;
-	}
-	printf("%.0f\n", total_sum);
-
-	return (0);
+    printf("\n"); /* Print a new line character */
+    return 0; /* Indicate success */
 }
