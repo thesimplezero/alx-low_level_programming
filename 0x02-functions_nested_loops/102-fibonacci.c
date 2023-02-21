@@ -3,7 +3,7 @@
 /**
  * main - Entry point of the program
  *
- * Description: Prints the first 50 Fibonacci numbers, starting with 1 and 2,
+ * Description: Prints the first 50 positive Fibonacci numbers, starting with 1 and 2,
  * separated by comma and space.
  *
  * Return: Always 0 (success)
@@ -21,10 +21,13 @@ int main(void)
     while (count < 50)
     {
         fib = fib1 + fib2; /* Calculate the next Fibonacci number */
-        printf(", %d", fib); /* Print it separated by comma and space */
+        if (fib > 0) /* Check if it is positive */
+        {
+            printf(", %d", fib); /* Print it separated by comma and space */
+            count++; /* Update the count of Fibonacci numbers printed */
+        }
         fib1 = fib2; /* Update the previous two Fibonacci numbers */
         fib2 = fib;
-        count++; /* Update the count of Fibonacci numbers printed */
     }
 
     printf("\n"); /* Print a new line character */
