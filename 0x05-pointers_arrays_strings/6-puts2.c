@@ -1,20 +1,20 @@
 #include "main.h"
 
 /**
- * puts2 - Prints every other character of a string, starting from the first
+ * print_even_chars - prints every even character of a string
  *
- * @str: The string to print
+ * @str: string to print even characters from
  *
- * Return: void
+ * Return: nothing
  */
-void puts2(char *str)
+void print_even_chars(char *str)
 {
-	int i;
+        int i;
 
-	for (i = 0; str[i] != '\0'; i += 2)
-	{
-		_putchar(str[i]);
-	}
-
-	_putchar('\n');
+        for (i = 0; str[i] != '\0'; ++i)
+        {
+                if (i % 2 == 0)
+                        _putchar(str[i]);
+        }
+        _putchar('\n');
 }
