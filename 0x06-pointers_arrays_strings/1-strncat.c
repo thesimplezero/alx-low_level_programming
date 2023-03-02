@@ -1,26 +1,22 @@
 /**
- * _strncat - function that concatenates two strings
- *            but only uses n bytes from src
- * @dest: pointer to destination string
- * @src: pointer to source string
- * @n: maximum number of bytes to use from src
+ * _strncat - concatenate two strings
+ * @dest: pointer to the string that will be concatenated with the src string
+ * @src: pointer to the string that will be appended to dest
+ * @n: maximum number of characters to be appended from src
  *
- * Return: pointer to resulting string @dest
+ * Return: pointer to the resulting string dest
  */
-char *_strncat(char *dest, char *src, int n)
+char *_strncat(char *dest, const char *src, int n)
 {
 	int i, j;
 
-	/* Find the end of dest */
 	for (i = 0; dest[i] != '\0'; i++)
 		;
 
-	/* Append the first n bytes of src to dest */
-	for (j = 0; j < n && src[j] != '\0'; j++)
+	for (j = 0; src[j] != '\0' && j < n; j++)
 		dest[i + j] = src[j];
 
-	/* Add null terminator to the end of dest */
 	dest[i + j] = '\0';
 
-	return dest;
+	return (dest);
 }
