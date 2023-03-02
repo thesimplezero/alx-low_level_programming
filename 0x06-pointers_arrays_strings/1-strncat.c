@@ -1,28 +1,23 @@
 /**
- * _strncat - concatenates two strings.
+ * _strncat - function that concatenates two strings.
+ * @dest: pointer to destination input.
+ * @src: pointer to source input.
+ * @n: maximum number of bytes to be used from src.
  *
- * @dest: pointer to destination string
- * @src: pointer to source string
- *
- * Return: pointer to resulting string dest
+ * Return: pointer to resulting string @dest.
  */
-char *_strncat(char *dest, char *src)
+char *_strncat(char *dest, char *src, int n)
 {
-	int dest_len = 0, i = 0;
+        int i, j;
 
-	/* find the length of dest */
-	while (dest[dest_len] != '\0')
-		dest_len++;
+        i = 0;
+        while (dest[i])
+                i++;
 
-	/* concatenate src to dest */
-	while (src[i] != '\0')
-	{
-		dest[dest_len] = src[i];
-		dest_len++;
-		i++;
-	}
+        for (j = 0; j < n && src[j]; j++)
+                dest[i + j] = src[j];
 
-	dest[dest_len] = '\0';
+        dest[i + j] = '\0';
 
-	return (dest);
+        return (dest);
 }
