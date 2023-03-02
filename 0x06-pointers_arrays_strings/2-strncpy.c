@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
 * _strncpy - copy a string from src to dest up to n characters
 * @dest: the destination string
