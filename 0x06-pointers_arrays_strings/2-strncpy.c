@@ -1,27 +1,23 @@
-#include <stddef.h>
 /**
-* _strncpy - copies a string up to n bytes
-* @dest: destination buffer
-* @src: source string
-* @n: number of bytes to be copied
-*
-* Description: Copies at most n bytes from the source string into
-*              the destination buffer. If the source string is shorter
-*              than n bytes, the remaining bytes are filled with null
-*              bytes.
-*
-* Return: Pointer to destination buffer.
-*/
-char *_strncpy(char *dest, const char *src, size_t n)
+ * _strncpy - copies a string
+ * @dest: destination
+ * @src: source
+ * @n: number of bytes from src
+ *
+ * Description: Copies up to n characters from the src string to the dest
+ * string, including the null byte. If the length of src is less than n, the
+ * remainder of dest will be filled with null bytes.
+ *
+ * Return: A pointer to the destination string.
+ */
+char *_strncpy(char *dest, const char *src, int n)
 {
-size_t i;
+        int i;
 
-for (i = 0; i < n && src[i] != '\0'; i++) {
-dest[i] = src[i];
-}
-for (; i < n; i++) {
-dest[i] = '\0';
-}
+        for (i = 0; i < n && src[i] != '\0'; i++)
+                dest[i] = src[i];
+        for (; i < n; i++)
+                dest[i] = '\0';
 
-return dest;
+        return (dest);
 }
