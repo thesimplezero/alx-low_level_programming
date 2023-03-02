@@ -1,24 +1,26 @@
 /**
- * _strncat - concatenates two strings
- * @dest: pointer to the destination array
- * @src: pointer to the source string
- * @n: maximum number of bytes to be appended
+ * _strncat - function that concatenates two strings
+ *            but only uses n bytes from src
+ * @dest: pointer to destination string
+ * @src: pointer to source string
+ * @n: maximum number of bytes to use from src
  *
- * Return: pointer to the resulting string dest
+ * Return: pointer to resulting string @dest
  */
-char *_strncat(char *dest, const char *src, int n)
+char *_strncat(char *dest, char *src, int n)
 {
-	int dest_len = 0, i;
+	int i, j;
 
-	/* Find the length of dest string */
-	while (dest[dest_len] != '\0')
-		dest_len++;
+	/* Find the end of dest */
+	for (i = 0; dest[i] != '\0'; i++)
+		;
 
-	/* Append at most n bytes from src to dest */
-	for (i = 0; i < n && src[i] != '\0'; i++)
-		dest[dest_len + i] = src[i];
+	/* Append the first n bytes of src to dest */
+	for (j = 0; j < n && src[j] != '\0'; j++)
+		dest[i + j] = src[j];
 
-	dest[dest_len + i] = '\0'; /* Append null byte to dest string */
+	/* Add null terminator to the end of dest */
+	dest[i + j] = '\0';
 
 	return dest;
 }
