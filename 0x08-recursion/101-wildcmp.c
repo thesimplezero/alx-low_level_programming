@@ -1,39 +1,27 @@
 /**
 * wildcmp - compares two strings and returns 1 if they can be considered
-* identical, otherwise returns 0. The second string can contain the special
-* character '*', which can replace any string (including an empty string).
+* identical, otherwise returns 0. s2 can contain the special character *,
+* which can replace any string (including an empty string).
 *
-* @s1: first string
-* @s2: second string (may contain '*')
+* @s1: the first string to compare
+* @s2: the second string to compare
 *
-* Return: 1 if the strings can be considered identical, otherwise 0.
+* Return: 1 if s1 and s2 can be considered identical, otherwise 0.
 */
 int wildcmp(char *s1, char *s2)
 {
-/* if both strings are empty, they are identical */
-if (*s1 == '\0' && *s2 == '\0')
-return (1);
-
-/* if the current character of s2 is '*', move to next character */
-if (*s2 == '*')
+if (*s2 == '*') /* special case: * can match anything */
 {
-/* check all possible matches from s1 after '*' */
-while (*(s1 + 1) != '\0')
-{
-/* recursively check all possible matches from s1 */
-if (wildcmp(s1 + 1, s2 + 1))
+if (*(s2 + 1) == '\0') /* if * is the last character, it matches */
 return (1);
-s1++;
+if (*s1 == '\0') /* if s1 is empty, s2 must consist of * only */
+return (wildcmp(s1, s2 + 1));
+return (wildcmp(s1 + 1, s2) || wildcmp(s1, s2 + 1));
+/* * matches s1[0] or * matches nothing */
 }
-
-/* check if s2 ends with '*' */
-return (*(s2 + 1) == '\0');
-}
-
-/* if the current characters of both strings match, continue */
-if (*s1 == *s2)
-return (wildcmp(s1 + 1, s2 + 1));
-
-/* if the current characters do not match and s2 does not contain '*', return 0 */
-return (*s2 != '\0' ? 0 : 0);
+if (*s1 == '\0' || *s2 == '\0') /* base case: end of string reached */
+return (*s1 == *s2);
+if (*s1 != *s2) /* characters don't match */
+return (0);
+return (wildcmp(s1 + 1, s2 + 1)); /* compare next characters */
 }
