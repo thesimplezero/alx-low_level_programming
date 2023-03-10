@@ -2,12 +2,11 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-
 /**
  * isNum - check if string array is num
  * @num: string to check
- * Return: 0 if it's a number
- *         1 if it's not a number
+ * Return: 0 if it's a number (success)
+ *         1 if it's not a number (fail)
 */
 
 int isNum(char num[])
