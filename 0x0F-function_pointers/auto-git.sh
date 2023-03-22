@@ -1,22 +1,14 @@
 #!/bin/bash
 
 # Get the list of files to push
-FILES=$(ls | grep -v "$0")
+files=$(ls | grep -v $0)
 
-# Loop through the files and push them to git
-for file in $FILES
-do
-  # Add the file to git
+# Loop through the files and add, commit, and push each one
+for file in $files; do
   git add $file
-
-  # Create the commit message
-  MESSAGE="Updating $file"
-
-  # Commit the changes
-  git commit -m "$MESSAGE"
-
-  # Push the changes to the remote repository
+  git commit -m "Pushing $file"
   git push
 done
 
+# Echo "done" when finished
 echo "done"
