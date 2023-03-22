@@ -1,42 +1,48 @@
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 /**
-* main - prints the opcodes of its own main function
-* @argc: the number of command-line arguments
-* @argv: an array of pointers to the arguments
+* main - Entry point of the program
 *
-* Return: 0 if successful, 1 if wrong number of arguments, 2 if negative bytes
+* Description: A program that prints the opcodes of its own main function.
+*              Usage: ./main number_of_bytes
+*
+* @argc: The number of command-line arguments
+* @argv: An array of pointers to the arguments
+*
+* Return: Always successful
 */
 int main(int argc, char *argv[])
 {
-int nbytes, i;
-unsigned char *opcodes;
+int index;
+int nbytes;
+char *ptr = (char *)main;
 
-/* check number of arguments */
+/* Check for the correct number of arguments */
 if (argc != 2)
 {
-printf("Error\n");
+fprintf(stderr, "Usage: %s number_of_bytes\n", argv[0]);
 return (1);
 }
 
-/* convert argument to integer */
+/* Convert argument to integer */
 nbytes = atoi(argv[1]);
 
-/* check for negative bytes */
+/* Check for negative bytes */
 if (nbytes < 0)
 {
-printf("Error\n");
+fprintf(stderr, "Error\n");
 return (2);
 }
 
-/* cast main function to unsigned char pointer */
-opcodes = (unsigned char *)main;
-
-/* print opcodes */
-for (i = 0; i < nbytes; i++)
-printf("%02x ", *(opcodes + i));
+/* Print opcodes */
+for (index = 0; index < nbytes; index++)
+{
+printf("%02x", ptr[index] & 0xFF);
+if (index != nbytes - 1)
+printf(" ");
+}
 printf("\n");
-
 return (0);
 }
