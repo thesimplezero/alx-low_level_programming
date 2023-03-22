@@ -13,10 +13,13 @@
 
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-size_t i;
+unsigned int index;
 
-for (i = 0; i < size; i++)
+if (array != NULL && action != NULL)
 {
-action(array[i]);
+for (index = 0; index < size; index++)
+{
+action(array[index]);
+}
 }
 }
