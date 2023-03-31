@@ -1,50 +1,75 @@
-#include <stdlib.h>
 #include "lists.h"
+#include <stdlib.h>
+#include <string.h>
 
 /**
-* append_node - appends a node at the end of the linked list
-*
+* add_node_end - adds a node at the end of the linked list
 * @head: pointer to the first node of the list
-* @str: string to add
+* @str: string to add to the new node in the list
+*
+* Description: This function creates a new node with the given string
+* and adds it to the end of the linked list.
 *
 * Return: NULL if it fails / starting addr of the list
 */
-
-list_t *append_node(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
-list_t *new_node, *current;
-size_t string_len = 0;
+list_t *new_node, *temp;
+size_t str_len;
+char *str_copy;
 
-/*set strig length to 0 if its NULL*/
+/* Set string length to 0 if it's NULL */
 if (str == NULL)
-string_len = 0;
+{
+str_len = 0;
+}
 else
 {
-/*count length of string*/
-while (str[string_len] != '\0')
-string_len++;
+/* Count length of string */
+for (str_len = 0; str[str_len] != '\0'; ++str_len)
+{
+}
 }
 
-new_node = malloc(sizeof(list_t));
+/* Allocate memory for the new node */
+new_node = (list_t *) malloc(sizeof(list_t));
 if (new_node == NULL)
-return (NULL);
+{
+return NULL;
+}
 
-new_node->str = strdup(str);
-new_node->len = string_len;
+/* Copy the string to the new node */
+str_copy = (char *) malloc((str_len + 1) * sizeof(char));
+if (str_copy == NULL)
+{
+free(new_node);
+return NULL;
+}
+memcpy(str_copy, str, str_len + 1);
+
+/* Initialize the new node */
+new_node->str = str_copy;
+new_node->len = str_len;
 new_node->next = NULL;
 
-current = *head;
+/* Copy the starting node pointer to temp */
+temp = *head;
 
-
-if (current == NULL)
+/* If temp is NULL, place the new_node at the beginning of the list */
+if (temp == NULL)
+{
 *head = new_node;
+}
 else
 {
-
-while (current->next != NULL)
-current = current->next;
-current->next = new_node;
+/* Iterate to the last node in the list */
+while (temp->next != NULL)
+{
+temp = temp->next;
+}
+/* Add the new_node at the end of the list */
+temp->next = new_node;
 }
 
-return (*head);
+return *head;
 }

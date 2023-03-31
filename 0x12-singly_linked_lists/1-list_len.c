@@ -1,28 +1,28 @@
 #include "lists.h"
 
 /**
-* count_nodes - counts the number of nodes in a linked list
+* list_len - gets the number of nodes
+* @h: pointer to the head (first node)
 *
-* @head: pointer to the head of the linked list
+* Description: This function takes a pointer to the first node of a list
+* and iterates through the list, counting the number of nodes. The function
+* returns the total number of nodes in the list.
 *
-* Return: number of nodes in the linked list
+* Return: number of nodes
 */
-
-size_t count_nodes(const list_t *head)
+size_t list_len(const list_t *h)
 {
 size_t node_count = 0;
 
-/*if head is null return 0 nodes*/
-if (head == NULL)
-return (0);
-
-/*iterate through the nodes*/
-while (head != NULL)
+/* Iterate through the list, counting the number of nodes */
+while (h != NULL)
 {
+/* Go to the next node */
+h = h->next;
+
+/* Increment the node count */
 node_count++;
-/*go to the next node*/
-head = head->next;
 }
 
-return (node_count);
+return node_count;
 }
