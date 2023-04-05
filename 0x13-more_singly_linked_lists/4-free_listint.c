@@ -1,8 +1,8 @@
 #include "lists.h"
 
 /**
-* free_listint - Frees a listint_t list.
-* @head: Pointer to the head of the list.
+* free_listint - Frees a list.
+* @head: Pointer to the head of the list
 *
 * Description: Iterates through the list and frees each node.
 */

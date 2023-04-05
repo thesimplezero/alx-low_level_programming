@@ -4,8 +4,7 @@
 * pop_listint - Removes the head node of a linked list of integers and
 * returns its value.
 * @head: Double pointer to the head of the list.
-*
-* Return: The value of the removed head node, or 0 if the list is empty.
+* Return: The value of the removed head node
 */
 int pop_listint(listint_t **head)
 {
@@ -24,7 +23,5 @@ tmp_nde = *head;
 *head = (*head)->next;
 
 free(tmp_nde);
-
-/* Return the head node's data */
 return (head_dat);
 }
