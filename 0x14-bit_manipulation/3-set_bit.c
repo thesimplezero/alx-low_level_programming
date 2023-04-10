@@ -1,0 +1,51 @@
+#include "main.h"
+
+/**
+* print_bin - prints binary representation of @n
+*
+* @number: decimal value
+*
+* Return: nothing
+*/
+void print_bin(unsigned long int number)
+{
+int i;
+unsigned long int mask;
+
+for (i = sizeof(unsigned long int) * 8 - 1; i >= 0; i--)
+{
+mask = (1UL << i);
+if (number & mask)
+break;
+}
+
+for (; i >= 0; i--)
+{
+mask = (1UL << i);
+_putchar((number & mask) ? '1' : '0');
+}
+}
+
+/**
+* set_bit - sets the value of a bit to 1 at a given
+*           index.
+*
+* @n: pointer to the number
+* @index: index to set the value of bit to 1
+*
+* Return: 1 if it worked OR -1 if it failed
+*/
+int set_bit(unsigned long int *n, unsigned int index)
+{
+unsigned long int mask;
+
+/* Check if index is greater than the size of n in binary coded decimal */
+if (index > (sizeof(unsigned long int) * 8))
+return (-1);
+
+mask = 1UL << index; /* Create mask based on index position */
+
+*n |= mask;
+
+return (1);
+}
