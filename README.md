@@ -1,2 +1,1 @@
-# alx-low_level_programming
-#C is fun
+# 0x14-bit_manipulation
