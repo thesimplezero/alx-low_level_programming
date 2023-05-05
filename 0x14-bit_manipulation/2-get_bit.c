@@ -10,6 +10,7 @@ if (nmbr >> 1)
 print_bin_recursive(nmbr >> 1);
 _putchar((nmbr & 1) ? '1' : '0');
 }
+
 /**
 * print_bin - Prints the binary representation of @nmbr
 *
@@ -19,6 +20,7 @@ void print_bin(unsigned long int nmbr)
 {
 print_bin_recursive(nmbr);
 }
+
 /**
 * get_bit - Gets a bit at a given index
 *
