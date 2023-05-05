@@ -27,15 +27,14 @@ void print_bin(unsigned long int number)
 {
 int i;
 unsigned long int mask;
-/* Find the position of the most significant bit */
 i = find_msb_position(number);
-/* Print the binary representation */
 for (; i >= 0; i--)
 {
 mask = (1UL << i);
 _putchar((number & mask) ? '1' : '0');
 }
 }
+
 /**
 * set_bit - sets the value of a bit to 1 at a given
 *           index.
@@ -48,10 +47,9 @@ _putchar((number & mask) ? '1' : '0');
 int set_bit(unsigned long int *n, unsigned int index)
 {
 unsigned long int mask;
-/* Check if index is greater than the size of n in binary coded decimal */
 if (index > (sizeof(unsigned long int) * 8))
 return (-1);
-mask = 1UL << index; /* Create mask based on index position */
+mask = 1UL << index;
 *n |= mask;
 return (1);
 }
