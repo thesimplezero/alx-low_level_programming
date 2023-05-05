@@ -37,6 +37,7 @@ mask = (1UL << bit_pstn);
 _putchar((num & mask) ? '1' : '0');
 }
 }
+
 /**
 * clear_bit - sets the value of a bit to 0 at a given index.
 *
@@ -48,10 +49,9 @@ _putchar((num & mask) ? '1' : '0');
 int clear_bit(unsigned long int *num_ptr, unsigned int index)
 {
 unsigned long int mask;
-/* Check if index is greater than the size of n in binary coded decimal */
 if (index > (sizeof(unsigned long int) * 8))
 return (-1);
-mask = ~(1UL << index); /* Create mask based on index position */
+mask = ~(1UL << index);
 *num_ptr &= mask;
 return (1);
 }
