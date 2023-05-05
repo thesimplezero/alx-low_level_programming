@@ -24,12 +24,12 @@ else if (found_msb)
 _putchar('0');
 }
 }
-/* If the number is zero, print a single '0' */
 if (!found_msb)
 {
 _putchar('0');
 }
 }
+
 /**
 * flip_bits - returns the number of
 * bits you would need to flip
@@ -40,14 +40,13 @@ _putchar('0');
 */
 unsigned int flip_bits(unsigned long int a, unsigned long int b)
 {
-unsigned int count = 0;
+unsigned int cnt = 0;
 unsigned long int diff;
 diff = a ^ b;
-/* Count the number of set bits in 'diff' */
 while (diff)
 {
-count += (diff & 1);
+cnt += (diff & 1);
 diff >>= 1;
 }
-return (count);
+return (cnt);
 }
