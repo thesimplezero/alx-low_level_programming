@@ -1,0 +1,42 @@
+# Compiler
+CC := gcc
+
+# Source files
+SRC := main.c school.c
+
+# Object files
+OBJ := $(SRC:.c=.o)
+
+# Executable name
+NAME := school
+
+# Compiler flags
+CFLAGS := -Wall -Werror -Wextra -pedantic
+
+# Program to delete files
+RM := rm -f
+
+# Default rule
+all: $(NAME)
+
+# Rule to build the executable
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
+
+# Cleaning rules
+clean oclean fclean:
+	$(RM) *~ $(NAME)
+ifneq ($(MAKECMDGOALS), clean)
+	$(RM) $(OBJ)
+endif
+ifneq ($(MAKECMDGOALS), oclean)
+	$(RM) $(OBJ)
+endif
+
+# Rule to force recompilation
+re: fclean all
+
+# Ensure m.h header exists
+$(NAME): m.h
+
+.PHONY: all clean oclean fclean re
